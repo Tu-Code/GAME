@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = 'stylesheet' href = './style/style.css'>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class = 'cont'>
+            <div><span>Click on the box colored : <div id = 'rgb_show'></div>
+
+            </span></div>
+            
+            <div id='boxes'>
+                <div id = 'box1' class = 'box' onclick = 'clicked_box(this.id)'></div>
+                <div id = 'box2' class = 'box' onclick = 'clicked_box(this.id)'></div>
+                <div id = 'box3' class = 'box' onclick = 'clicked_box(this.id)'></div>
+                <div id = 'box4' class = 'box' onclick = 'clicked_box(this.id)'></div>
+                <div id = 'box5' class = 'box' onclick = 'clicked_box(this.id)'></div>
+            </div>
+            <!-- <div class = 'button'>
+                <input type = 'button' value = 'Play Again'>
+            </div> -->
+        </div>
+    </body>
+    <script>
+        let color;
+        let getRandomRgb = () => {
+            let num = Math.round(0xffffff * Math.random());
+            let r = num >> 16;
+            let g = num >> 8 & 255;
+            let b = num & 255;
+            color = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+            return color;
+        }
+
+            for (var i = 0; i < 4; i++) {
+                
+            console.log(getRandomRgb());
+            }
+
+            let js_color = document.getElementById('box1');
+            js_color.style.backgroundColor = getRandomRgb();
+
+            let js2_color = document.getElementById('box2');
+            js2_color.style.backgroundColor = getRandomRgb();
+
+            let js3_color = document.getElementById('box3');
+            js3_color.style.backgroundColor = getRandomRgb();
+
+            let js4_color = document.getElementById('box4');
+            js4_color.style.backgroundColor = getRandomRgb();
+
+            let js5_color = document.getElementById('box5');
+            js5_color.style.backgroundColor = getRandomRgb();
+
+            //let rgbShow = document.getElementById('rgb_show').innerHTML = color;
+            let colorArray = [js_color.style.backgroundColor, js2_color.style.backgroundColor , js3_color.style.backgroundColor, js4_color.style.backgroundColor,js5_color.style.backgroundColor];
+
+            
+            let rgb_show = document.getElementById('rgb_show').innerHTML = colorArray [Math.floor(Math.random() * colorArray.length)];
+
+            let clicked_box = (clicked_id) => {
+                let clicked_color = document.getElementById(clicked_id);
+                
+                if (clicked_color.style.backgroundColor == rgb_show){
+                    alert("you won");
+                }
+            }
+        
+                        
+                    
+    </script>
+</html>
